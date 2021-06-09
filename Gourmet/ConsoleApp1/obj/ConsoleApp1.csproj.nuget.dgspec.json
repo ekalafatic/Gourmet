@@ -1,20 +1,24 @@
 {
   "format": 1,
   "restore": {
-    "D:\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Entrega1\\ConsoleApp1\\ConsoleApp1.csproj": {}
+    "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\ConsoleApp1.csproj": {}
   },
   "projects": {
-    "D:\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Entrega1\\ConsoleApp1\\ConsoleApp1.csproj": {
+    "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\ConsoleApp1.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "D:\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Entrega1\\ConsoleApp1\\ConsoleApp1.csproj",
+        "projectUniqueName": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\ConsoleApp1.csproj",
         "projectName": "ConsoleApp1",
-        "projectPath": "D:\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Entrega1\\ConsoleApp1\\ConsoleApp1.csproj",
-        "packagesPath": "C:\\Users\\ekalafatic\\.nuget\\packages\\",
-        "outputPath": "D:\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Entrega1\\ConsoleApp1\\obj\\",
+        "projectPath": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\ConsoleApp1.csproj",
+        "packagesPath": "C:\\Users\\Hexacta\\.nuget\\packages\\",
+        "outputPath": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\obj\\",
         "projectStyle": "PackageReference",
+        "fallbackFolders": [
+          "C:\\Program Files (x86)\\Microsoft Visual Studio\\Shared\\NuGetPackages"
+        ],
         "configFilePaths": [
-          "C:\\Users\\ekalafatic\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Users\\Hexacta\\AppData\\Roaming\\NuGet\\NuGet.Config",
+          "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.FallbackLocation.config",
           "C:\\Program Files (x86)\\NuGet\\Config\\Microsoft.VisualStudio.Offline.config"
         ],
         "originalTargetFrameworks": [
@@ -54,7 +58,7 @@
               "privateAssets": "all"
             }
           },
-          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.203\\RuntimeIdentifierGraph.json"
+          "runtimeIdentifierGraphPath": "C:\\Program Files\\dotnet\\sdk\\5.0.301\\RuntimeIdentifierGraph.json"
         }
       }
     }
