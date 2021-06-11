@@ -8,11 +8,11 @@ namespace GourmetSp.Tests
     public class RecipeBookTest
     {
         // lácteos, carnes, legumbres, vegetales, frutas, cereales.
-        private static List<string> _foodGroups = new List<string> { "dairies", "meets", "vegetables", "fruits", "legumes", "cereals" };
-        private static List<string> _units = new List<string> { "grams", "kilos", "c/n", "unit" };
-        private Dictionary<Food, double> ingredients;
-        private Food _food1, _food2, _food3, _food4;
-        private Recipe _recipe1, _recipe2;
+        private static List<string> foodGroups = new List<string> { "dairies", "meets", "vegetables", "fruits", "legumes", "cereals" };
+        private static List<string> units = new List<string> { "grams", "kilos", "c/n", "unit" };
+        private Dictionary<Food, double> ingredientsRecipe1, ingredientsRecipe2;
+        private Food food1, food2, food3, food4;
+        private Recipe recipe1, recipe2;
 
 
         [Fact]
@@ -20,33 +20,33 @@ namespace GourmetSp.Tests
         {
 
             // <- Food >
-            Food _food1 = new Food(55, _units[3], _foodGroups[2]);
-            Food _food2 = new Food(135, _units[3], _foodGroups[3]);
-            Food _food3 = new Food(200, _units[0], _foodGroups[5]);
-            Food _food4 = new Food(180, _units[3], _foodGroups[0]);
+            this.food1 = new Food(55, units[3], foodGroups[2]);
+            this.food2 = new Food(135, units[3], foodGroups[3]);
+            this.food3 = new Food(200, units[0], foodGroups[5]);
+            this.food4 = new Food(180, units[3], foodGroups[0]);
 
 
             // < Recipes >
             // Recipe1
-            Dictionary<Food, double> _ingredients = new Dictionary<Food, double>();
-            _ingredients.Add(_food1, 1);
-            _ingredients.Add(_food2, 1);
+            this.ingredientsRecipe1 = new Dictionary<Food, double>();
+            ingredientsRecipe1.Add(food1, 1);
+            ingredientsRecipe1.Add(food2, 1);
 
-            Recipe _recipe1 = new Recipe("recipe1", _ingredients);
+            this.recipe1 = new Recipe("recipe1", ingredientsRecipe1);
 
 
             // Recipe2
-            Dictionary<Food, double> _ingredientsRecipe2 = new Dictionary<Food, double>();
-            _ingredientsRecipe2.Add(_food3, 1);
-            _ingredientsRecipe2.Add(_food4, 3);
+            this.ingredientsRecipe2 = new Dictionary<Food, double>();
+            ingredientsRecipe2.Add(food3, 1);
+            ingredientsRecipe2.Add(food4, 3);
 
-            Recipe _recipe2 = new Recipe("recipe2", _ingredientsRecipe2);
+            this.recipe2 = new Recipe("recipe2", ingredientsRecipe2);
 
 
             // < RecipeBooks >
             List<Recipe> _recipes = new List<Recipe>();
-            _recipes.Add(_recipe1);
-            _recipes.Add(_recipe2);
+            _recipes.Add(recipe1);
+            _recipes.Add(recipe2);
 
             RecipeBook _someRecipeBook = new RecipeBook(_recipes);
 

@@ -11,27 +11,27 @@ namespace GourmetSp.Tests
         private static List<string> _foodGroups = new List<string> { "dairies", "meets", "vegetables", "fruits", "legumes", "cereals" };
         private static List<string> _units = new List<string> { "grams", "kilos", "c/n", "unit" };
         private Dictionary<Food, double> ingredients;
-        private Food _food1, _food2, _food3;
-        private Recipe _recipe;
+        private Food food1, food2, food3;
+        private Recipe recipe;
 
         [Fact]
         public void amountIngredientsTest()
         {
             // <- Food >
-            Food _food1 = new Food(23, _units[2], _foodGroups[2]);
-            Food _food2 = new Food(45, _units[2], _foodGroups[3]);
-            Food _food3 = new Food(123, _units[3], _foodGroups[0]);
+            this.food1 = new Food(23, _units[2], _foodGroups[2]);
+            this.food2 = new Food(45, _units[2], _foodGroups[3]);
+            this.food3 = new Food(123, _units[3], _foodGroups[0]);
 
             // < Recipes >
             // Recipe1
-            Dictionary<Food, double> _ingredients = new Dictionary<Food, double>();
-            _ingredients.Add(_food1, 1);
-            _ingredients.Add(_food2, 1);
-            _ingredients.Add(_food3, 5);
+            this.ingredients = new Dictionary<Food, double>();
+            ingredients.Add(food1, 1);
+            ingredients.Add(food2, 1);
+            ingredients.Add(food3, 5);
 
-            Recipe _recipe = new Recipe("recipe1", _ingredients);
+            this.recipe = new Recipe("recipe1", ingredients);
 
-            var result = _recipe.amountIngredients();
+            var result = recipe.amountIngredients();
 
             Assert.Equal(3, result);
         }
@@ -40,9 +40,9 @@ namespace GourmetSp.Tests
         [Fact]
         public void amountIngredientsNullTest()
         {
-            Recipe _recipe = new Recipe();
+            this.recipe = new Recipe();
 
-            var result = _recipe.amountIngredients();
+            var result = this.recipe.amountIngredients();
 
             Assert.Equal(0, result);
         }
