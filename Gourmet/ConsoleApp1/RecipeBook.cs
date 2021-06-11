@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace GourmetSp
 {
-    class RecipeBook
+    public class RecipeBook
     {
         public List<Recipe> recipes { get; set; }
 
@@ -13,6 +13,8 @@ namespace ConsoleApp1
             this.recipes = recipes;
         }
 
+        public RecipeBook() { }
+
         public void addRecipe(Recipe recipe)
         {
             recipes.Add(recipe);
@@ -20,6 +22,11 @@ namespace ConsoleApp1
 
         public int amountRecipes()
         {
+            if(recipes == null)
+            {
+                this.recipes = new List<Recipe>();
+            }
+
             return recipes.Count;
         }
 

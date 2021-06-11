@@ -14,9 +14,9 @@
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\ConsoleApp1.csproj",
-      "projectName": "ConsoleApp1",
-      "projectPath": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\ConsoleApp1.csproj",
+      "projectUniqueName": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\Gourmet.csproj",
+      "projectName": "Gourmet",
+      "projectPath": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\Gourmet.csproj",
       "packagesPath": "C:\\Users\\Hexacta\\.nuget\\packages\\",
       "outputPath": "E:\\Archivos\\OneDrive - HEXACTA S.A\\VSProjects\\ekalafatic\\Gourmet\\ConsoleApp1\\obj\\",
       "projectStyle": "PackageReference",

@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace GourmetSp
 {
-    class Food
+    public class Food
     {
         public double calories;
         public string unit { get; set; }

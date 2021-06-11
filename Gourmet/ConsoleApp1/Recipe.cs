@@ -2,9 +2,9 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace ConsoleApp1
+namespace GourmetSp
 {
-    class Recipe
+    public class Recipe
     {
         public string recipeTitle { get; set; }
         //public List<Food> listFood { get; set; }
@@ -15,6 +15,8 @@ namespace ConsoleApp1
             this.recipeTitle = recipeTitle;
             this.amountByIngredients = amountByIngredients;
         }
+
+        public Recipe() { }
 
         public double caloriesRecipe()
         {
@@ -27,6 +29,13 @@ namespace ConsoleApp1
             }
 
             return calories;
+        }
+
+        public double amountIngredients()
+        {
+            if (amountByIngredients == null) this.amountByIngredients = new Dictionary<Food, double>();
+
+            return this.amountByIngredients.Count;
         }
 
         // Comentario sólo para recordar la maravilla de get set automático :')
