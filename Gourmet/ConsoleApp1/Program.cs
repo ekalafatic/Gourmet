@@ -13,10 +13,10 @@ namespace GourmetSp
             List<string> units = new List<string> { "grams", "kilos", "c/n", "unit"};
             
             // < Food >
-            Food carrot = new Food(55, units[3], foodGroups[2]);
-            Food banana = new Food(135, units[3], foodGroups[3]);
-            Food flour = new Food(200, units[0], foodGroups[5]);
-            Food egg = new Food(180, units[3], foodGroups[0]);
+            Food carrot = new Food(55, units[3], foodGroups[2], "carrot");
+            Food banana = new Food(135, units[3], foodGroups[3], "banana");
+            Food flour = new Food(200, units[0], foodGroups[5], "flour");
+            Food egg = new Food(180, units[3], foodGroups[0], "egg");
 
 
             // < Recipes >

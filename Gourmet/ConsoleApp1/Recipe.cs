@@ -21,6 +21,9 @@ namespace GourmetSp
         public double caloriesRecipe()
         {
             double calories = 0;
+
+            if (this.amountByIngredients == null) return calories;
+
             Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
 
             foreach (Food food in keyIngredients)
@@ -38,24 +41,21 @@ namespace GourmetSp
             return this.amountByIngredients.Count;
         }
 
-        // Comentario sólo para recordar la maravilla de get set automático :')
-        //public void setListFood(List<Food> listFood)
-        //{
-        //    this.listFood = listFood;
-        //}
-        //public List<Food> getFood()
-        //{
-        //    return this.listFood;
-        //}
 
-        //public void setAmountIngredients(Dictionary<Food,double> amountIngredients)
-        //{
-        //    this.amountIngredients = amountIngredients;
-        //}
+        public List<Food> getFood()
+        {
+            List<Food> lFood = new List<Food>();
 
-        //public Dictionary<Food, double> getAmountIngredients()
-        //{
-        //    return this.amountIngredients;
-        //}
+            if (this.amountByIngredients == null) return lFood;
+
+            Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
+
+            foreach (Food food in keyIngredients)
+            {
+                lFood.Add(food);
+            }
+
+            return lFood;
+        }
     }
 }
