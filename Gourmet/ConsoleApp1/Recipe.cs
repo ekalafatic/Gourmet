@@ -8,6 +8,8 @@ namespace GourmetSp
     {
         public string recipeTitle { get; set; }
         //public List<Food> listFood { get; set; }
+
+        //CAMBIAR PARA NO TENER GET SET DE COLECCIÓN
         public Dictionary<Food, double> amountByIngredients { get; set; }
 
         public Recipe(string recipeTitle, Dictionary<Food,double> amountByIngredients)
@@ -41,21 +43,29 @@ namespace GourmetSp
             return this.amountByIngredients.Count;
         }
 
-
-        public List<Food> getFood()
+        public Boolean haveFood(string nameFood)
         {
-            List<Food> lFood = new List<Food>();
-
-            if (this.amountByIngredients == null) return lFood;
-
             Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
 
             foreach (Food food in keyIngredients)
             {
-                lFood.Add(food);
+                if (food.name == nameFood) return true;
             }
 
-            return lFood;
+            return false;
         }
+
+        public Boolean haveFoodGroup(FoodGroup group)
+        {
+            Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
+
+            foreach (Food food in keyIngredients)
+            {
+                if (food.group == group) return true;
+            }
+
+            return false;
+        }
+
     }
 }

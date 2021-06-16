@@ -7,15 +7,12 @@ namespace GourmetSp.Tests
 {
     public class RecipeBookTest
     {
-        // lácteos, carnes, legumbres, vegetales, frutas, cereales.
-        private static List<string> foodGroups = new List<string> { "dairies", "meets", "vegetables", "fruits", "legumes", "cereals" };
-        private static List<string> units = new List<string> { "grams", "kilos", "c/n", "unit" };
         private Dictionary<Food, double> ingredientsRecipe1, ingredientsRecipe2;
         private Food
-            food1 = new Food(55, units[3], foodGroups[2], "food1"),
-            food2 = new Food(135, units[3], foodGroups[3], "food2"),
-            food3 = new Food(200, units[0], foodGroups[5], "food3"),
-            food4 = new Food(180, units[3], foodGroups[0], "food4");
+            food1 = new Food(55, Unit.grams, FoodGroup.Fruits, "food1"),
+            food2 = new Food(135, Unit.unit, FoodGroup.Legumes, "food2"),
+            food3 = new Food(200, Unit.kilos, FoodGroup.Vegetables, "food3"),
+            food4 = new Food(180, Unit.grams, FoodGroup.Cereals, "food4");
         private Recipe recipe1, recipe2;
 
 

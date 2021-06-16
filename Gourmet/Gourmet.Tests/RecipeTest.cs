@@ -7,20 +7,17 @@ namespace GourmetSp.Tests
 {
     public class RecipeTest
     {
-        // lácteos, carnes, legumbres, vegetales, frutas, cereales.
-        private static List<string> foodGroups = new List<string> { "dairies", "meets", "vegetables", "fruits", "legumes", "cereals" };
-        private static List<string> units = new List<string> { "grams", "kilos", "c/n", "unit" };
         private Dictionary<Food, double> ingredients;
         private Food 
-            food1 = new Food(23, units[2], foodGroups[2], "food1"), 
-            food2 = new Food(45, units[2], foodGroups[3], "food2"),
-            food3 = new Food(123, units[3], foodGroups[0], "food3");
+            food1 = new Food(23, Unit.unit, FoodGroup.Vegetables, "food1"), 
+            food2 = new Food(45, Unit.kilos, FoodGroup.Legumes, "food2"),
+            food3 = new Food(123, Unit.grams, FoodGroup.Cereals, "food3");
         private Recipe recipe;
 
         [Fact]
         public void amountIngredientsTest()
         {
-
+           
             // < Recipes >
             // Recipe1
             this.ingredients = new Dictionary<Food, double>();
@@ -84,14 +81,7 @@ namespace GourmetSp.Tests
 
             this.recipe = new Recipe("recipe1", ingredients);
 
-            var lFood = this.recipe.getFood();
-
-            bool result = false;
-
-            foreach (Food food in lFood)
-            {
-                if (food.name == "food1") result = true;
-            }
+            bool result = recipe.haveFood("food1");
 
             Assert.True(result);
         }
@@ -118,7 +108,7 @@ namespace GourmetSp.Tests
 
 
         [Fact]
-        public void groupTest()
+        public void groupTrueTest()
         {
             // < Recipe >
             this.ingredients = new Dictionary<Food, double>();
@@ -127,31 +117,21 @@ namespace GourmetSp.Tests
 
             this.recipe = new Recipe("recipe1", ingredients);
 
-            var lFood = this.recipe.getFood();
-
-            bool result = false;
-
-            foreach (Food food in lFood)
-            {
-                if (food.group == "vegetables") result = true;
-            }
+            bool result = recipe.haveFoodGroup(FoodGroup.Vegetables);
 
             Assert.True(result);
         }
 
         [Fact]
-        public void groupNullTest()
+        public void groupFalseTest()
         {
-            this.recipe = new Recipe();
+            this.ingredients = new Dictionary<Food, double>();
+            ingredients.Add(food1, 1);
+            ingredients.Add(food2, 1);
 
-            var lFood = recipe.getFood();
+            this.recipe = new Recipe("recipe1", ingredients);
 
-            bool result = false;
-
-            foreach (Food food in lFood)
-            {
-                if (food.group == "vegetables") result = true;
-            }
+            bool result = recipe.haveFoodGroup(FoodGroup.Meets);
 
             Assert.False(result);
         }
