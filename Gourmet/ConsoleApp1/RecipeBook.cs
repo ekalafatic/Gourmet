@@ -6,28 +6,26 @@ namespace GourmetSp
 {
     public class RecipeBook
     {
-        public List<Recipe> recipes { get; set; }
+        private List<Recipe> _recipes;
 
         public RecipeBook(List<Recipe> recipes)
         {
-            this.recipes = recipes;
+            this._recipes = recipes;
         }
 
-        public RecipeBook() { }
+        public RecipeBook() 
+        {
+            this._recipes = new List<Recipe>();
+        }
 
         public void addRecipe(Recipe recipe)
         {
-            recipes.Add(recipe);
+            _recipes.Add(recipe);
         }
 
         public int amountRecipes()
         {
-            if(recipes == null)
-            {
-                this.recipes = new List<Recipe>();
-            }
-
-            return recipes.Count;
+            return _recipes.Count;
         }
 
 

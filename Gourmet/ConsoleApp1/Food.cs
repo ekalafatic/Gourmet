@@ -24,19 +24,25 @@ namespace GourmetSp
 {
     public class Food
     {
-        public double calories;
-        public string name { get; set; }
-        public FoodGroup group { get; set; }
-        public Unit unit { get; set; }
+        public double Calories;
+        public string Name { get; set; }
+        public FoodGroup Group { get; set; }
+        public Unit Unit { get; set; }
 
         public Food(double calories, Unit unit, FoodGroup group, string name)
         {
-            this.calories = calories;
-            this.unit = unit;
-            this.group = group;
-            this.name = name;
+            this.Calories = calories;
+            this.Unit = unit;
+            this.Group = group;
+            this.Name = name;
         }
 
-        public Food() { }
+        public Food() 
+        {
+            this.Name = "";
+            this.Calories = 0;
+            this.Unit = new Unit();
+            this.Group = new FoodGroup();
+        }
     }
 }

@@ -6,62 +6,55 @@ namespace GourmetSp
 {
     public class Recipe
     {
-        public string recipeTitle { get; set; }
-        //public List<Food> listFood { get; set; }
+        public string RecipeTitle { get; set; }
 
-        //CAMBIAR PARA NO TENER GET SET DE COLECCIÓN
-        public Dictionary<Food, double> amountByIngredients { get; set; }
+        private List<Ingredient> _lIngredients;
 
-        public Recipe(string recipeTitle, Dictionary<Food,double> amountByIngredients)
+        public Recipe(string recipeTitle, List<Ingredient> ingredients)
         {
-            this.recipeTitle = recipeTitle;
-            this.amountByIngredients = amountByIngredients;
+            this.RecipeTitle = recipeTitle;
+            this._lIngredients = ingredients;
         }
 
-        public Recipe() { }
+        public Recipe() 
+        {
+            this._lIngredients = new List<Ingredient>();
+            this.RecipeTitle = "";
+        }
 
-        public double caloriesRecipe()
+        public double CaloriesRecipe()
         {
             double calories = 0;
 
-            if (this.amountByIngredients == null) return calories;
-
-            Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
-
-            foreach (Food food in keyIngredients)
+            foreach (Ingredient ingredient in _lIngredients)
             {
-                calories += food.calories * amountByIngredients[food];
+                calories += ingredient.Food.Calories * ingredient.Amount;
             }
 
             return calories;
         }
 
-        public double amountIngredients()
+        public double AmountIngredients()
         {
-            if (amountByIngredients == null) this.amountByIngredients = new Dictionary<Food, double>();
-
-            return this.amountByIngredients.Count;
+            return this._lIngredients.Count;
         }
 
-        public Boolean haveFood(string nameFood)
+        public Boolean HaveFood(string nameFood)
         {
-            Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
 
-            foreach (Food food in keyIngredients)
+            foreach (Ingredient ingredient in _lIngredients)
             {
-                if (food.name == nameFood) return true;
+                if(ingredient.Food.Name == nameFood) return true;
             }
 
             return false;
         }
 
-        public Boolean haveFoodGroup(FoodGroup group)
+        public Boolean HaveFoodGroup(FoodGroup group)
         {
-            Dictionary<Food, double>.KeyCollection keyIngredients = this.amountByIngredients.Keys;
-
-            foreach (Food food in keyIngredients)
+            foreach (Ingredient ingredient in _lIngredients)
             {
-                if (food.group == group) return true;
+                if (ingredient.Food.Group == group) return true;
             }
 
             return false;

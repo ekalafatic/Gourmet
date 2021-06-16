@@ -7,27 +7,39 @@ namespace GourmetSp.Tests
 {
     public class RecipeTest
     {
-        private Dictionary<Food, double> ingredients;
+        //private Dictionary<Food, double> ingredients;
+        private List<Ingredient> _ingredientsRecipe = new List<Ingredient>();
         private Food 
-            food1 = new Food(23, Unit.unit, FoodGroup.Vegetables, "food1"), 
-            food2 = new Food(45, Unit.kilos, FoodGroup.Legumes, "food2"),
-            food3 = new Food(123, Unit.grams, FoodGroup.Cereals, "food3");
+            _food1 = new Food(23, Unit.unit, FoodGroup.Vegetables, "food1"), 
+            _food2 = new Food(45, Unit.kilos, FoodGroup.Legumes, "food2"),
+            _food3 = new Food(123, Unit.grams, FoodGroup.Cereals, "food3");
         private Recipe recipe;
 
         [Fact]
-        public void amountIngredientsTest()
+        public void AmountIngredientsTest()
         {
-           
-            // < Recipes >
-            // Recipe1
-            this.ingredients = new Dictionary<Food, double>();
-            ingredients.Add(food1, 1);
-            ingredients.Add(food2, 1);
-            ingredients.Add(food3, 5);
 
-            this.recipe = new Recipe("recipe1", ingredients);
+            // Creating ingredients
+            Ingredient ingredients1 = new Ingredient();
+            ingredients1.Food = this._food1;
+            ingredients1.Amount = 1;
 
-            var result = recipe.amountIngredients();
+            Ingredient ingredients2 = new Ingredient();
+            ingredients2.Food = this._food2;
+            ingredients2.Amount = 1;
+
+            Ingredient ingredients3 = new Ingredient();
+            ingredients3.Food = this._food3;
+            ingredients3.Amount = 2;
+
+            // Adding ingredients to recipe
+            this._ingredientsRecipe.Add(ingredients1);
+            this._ingredientsRecipe.Add(ingredients2);
+            this._ingredientsRecipe.Add(ingredients3);
+
+            this.recipe = new Recipe("recipe1", _ingredientsRecipe);
+
+            var result = recipe.AmountIngredients();
 
             Assert.Equal(3, result);
         }
@@ -38,7 +50,7 @@ namespace GourmetSp.Tests
         {
             this.recipe = new Recipe();
 
-            var result = this.recipe.amountIngredients();
+            var result = this.recipe.AmountIngredients();
 
             Assert.Equal(0, result);
         }
@@ -47,16 +59,27 @@ namespace GourmetSp.Tests
         public void amountCalories()
         {
 
-            // < Recipes >
-            // Recipe1
-            this.ingredients = new Dictionary<Food, double>();
-            ingredients.Add(food1, 1);
-            ingredients.Add(food2, 1);
-            ingredients.Add(food3, 5);
+            // Creating ingredients
+            Ingredient ingredients1 = new Ingredient();
+            ingredients1.Food = this._food1;
+            ingredients1.Amount = 1;
 
-            this.recipe = new Recipe("recipe1", ingredients);
+            Ingredient ingredients2 = new Ingredient();
+            ingredients2.Food = this._food2;
+            ingredients2.Amount = 1;
 
-            var result = recipe.caloriesRecipe();
+            Ingredient ingredients3 = new Ingredient();
+            ingredients3.Food = this._food3;
+            ingredients3.Amount = 5;
+
+            // Adding ingredients to recipe
+            this._ingredientsRecipe.Add(ingredients1);
+            this._ingredientsRecipe.Add(ingredients2);
+            this._ingredientsRecipe.Add(ingredients3);
+
+            this.recipe = new Recipe("recipe1", _ingredientsRecipe);
+
+            var result = recipe.CaloriesRecipe();
 
             Assert.Equal(683, result);
         }
@@ -66,7 +89,7 @@ namespace GourmetSp.Tests
         {
             this.recipe = new Recipe();
 
-            var result = this.recipe.caloriesRecipe();
+            var result = this.recipe.CaloriesRecipe();
 
             Assert.Equal(0, result);
         }
@@ -74,35 +97,34 @@ namespace GourmetSp.Tests
         [Fact]
         public void foodNameTest()
         {
-            // < Recipe >
-            this.ingredients = new Dictionary<Food, double>();
-            ingredients.Add(food1, 1);
-            ingredients.Add(food2, 1);
+            // Creating ingredients
+            Ingredient ingredients1 = new Ingredient();
+            ingredients1.Food = this._food1;
+            ingredients1.Amount = 1;
 
-            this.recipe = new Recipe("recipe1", ingredients);
+            Ingredient ingredients2 = new Ingredient();
+            ingredients2.Food = this._food2;
+            ingredients2.Amount = 1;
 
-            bool result = recipe.haveFood("food1");
+            // Adding ingredients to recipe
+            this._ingredientsRecipe.Add(ingredients1);
+            this._ingredientsRecipe.Add(ingredients2);
+
+            this.recipe = new Recipe("recipe1", _ingredientsRecipe);
+
+            bool result = recipe.HaveFood("food1");
 
             Assert.True(result);
         }
 
         [Fact]
-        public void foodNameNullTest()
+        public void foodNameFalseTest()
         {
-            // < Recipe >
-            this.ingredients = new Dictionary<Food, double>();
 
-            this.recipe = new Recipe("recipe1", ingredients);
+            this.recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            var lFood = this.recipe.getFood();
-
-            bool result = false;
-
-            foreach (Food food in lFood)
-            {
-                if (food.name == "food1") result = true;
-            }
-
+            bool result = this.recipe.HaveFood("food4");
+           
             Assert.False(result);
         }
 
@@ -110,14 +132,22 @@ namespace GourmetSp.Tests
         [Fact]
         public void groupTrueTest()
         {
-            // < Recipe >
-            this.ingredients = new Dictionary<Food, double>();
-            ingredients.Add(food1, 1);
-            ingredients.Add(food2, 1);
+            // Creating ingredients
+            Ingredient ingredients1 = new Ingredient();
+            ingredients1.Food = this._food1;
+            ingredients1.Amount = 1;
 
-            this.recipe = new Recipe("recipe1", ingredients);
+            Ingredient ingredients2 = new Ingredient();
+            ingredients2.Food = this._food2;
+            ingredients2.Amount = 1;
 
-            bool result = recipe.haveFoodGroup(FoodGroup.Vegetables);
+            // Adding ingredients to recipe
+            this._ingredientsRecipe.Add(ingredients1);
+            this._ingredientsRecipe.Add(ingredients2);
+
+            this.recipe = new Recipe("recipe1", _ingredientsRecipe);
+
+            bool result = recipe.HaveFoodGroup(FoodGroup.Vegetables);
 
             Assert.True(result);
         }
@@ -125,13 +155,22 @@ namespace GourmetSp.Tests
         [Fact]
         public void groupFalseTest()
         {
-            this.ingredients = new Dictionary<Food, double>();
-            ingredients.Add(food1, 1);
-            ingredients.Add(food2, 1);
+            // Creating ingredients
+            Ingredient ingredients1 = new Ingredient();
+            ingredients1.Food = this._food1;
+            ingredients1.Amount = 1;
 
-            this.recipe = new Recipe("recipe1", ingredients);
+            Ingredient ingredients2 = new Ingredient();
+            ingredients2.Food = this._food2;
+            ingredients2.Amount = 1;
 
-            bool result = recipe.haveFoodGroup(FoodGroup.Meets);
+            // Adding ingredients to recipe
+            this._ingredientsRecipe.Add(ingredients1);
+            this._ingredientsRecipe.Add(ingredients2);
+
+            this.recipe = new Recipe("recipe1", _ingredientsRecipe);
+
+            bool result = recipe.HaveFoodGroup(FoodGroup.Meets);
 
             Assert.False(result);
         }
