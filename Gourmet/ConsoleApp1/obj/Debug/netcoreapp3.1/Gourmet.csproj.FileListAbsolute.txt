@@ -1,7 +1,4 @@
-E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\bin\Debug\netcoreapp3.1\Gourmet.exe
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\bin\Debug\netcoreapp3.1\Gourmet.deps.json
-E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\bin\Debug\netcoreapp3.1\Gourmet.runtimeconfig.json
-E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\bin\Debug\netcoreapp3.1\Gourmet.runtimeconfig.dev.json
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\bin\Debug\netcoreapp3.1\Gourmet.dll
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\bin\Debug\netcoreapp3.1\Gourmet.pdb
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\obj\Debug\netcoreapp3.1\Gourmet.csproj.AssemblyReference.cache
@@ -10,4 +7,3 @@ E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\obj
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\obj\Debug\netcoreapp3.1\Gourmet.csproj.CoreCompileInputs.cache
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\obj\Debug\netcoreapp3.1\Gourmet.dll
 E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\obj\Debug\netcoreapp3.1\Gourmet.pdb
-E:\Archivos\OneDrive - HEXACTA S.A\VSProjects\ekalafatic\Gourmet\ConsoleApp1\obj\Debug\netcoreapp3.1\Gourmet.genruntimeconfig.cache
