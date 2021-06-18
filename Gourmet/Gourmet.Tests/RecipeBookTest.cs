@@ -7,7 +7,6 @@ namespace GourmetSp.Tests
 {
     public class RecipeBookTest
     {
-        //private Dictionary<Food, double> ingredientsRecipe1, ingredientsRecipe2;
         private List<Ingredient> _ingredientsRecipe1 = new List<Ingredient>(), _ingredientsRecipe2 = new List<Ingredient>();
         private Food
             _food1 = new Food(55, Unit.grams, FoodGroup.Fruits, "food1"),
@@ -20,13 +19,6 @@ namespace GourmetSp.Tests
         [Fact]
         public void AmountRecipeTest()
         {
-            
-            // < Recipes >
-            // Recipe1
-            //this.ingredientsRecipe1 = new Dictionary<Food, double>();
-            //ingredientsRecipe1.Add(food1, 1);
-            //ingredientsRecipe1.Add(food2, 1);
-
             // Creating ingredients
             Ingredient ingredients1 = new Ingredient();
             ingredients1.Food = this._food1;

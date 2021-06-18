@@ -2,29 +2,11 @@
 using System.Collections.Generic;
 using System.Text;
 
-public enum FoodGroup
-{
-    Dairies, // lácteos
-    Meets,
-    Vegetables,
-    Fruits,
-    Legumes,
-    Cereals
-}
-
-public enum Unit
-{
-    grams,
-    kilos,
-    cn,
-    unit
-}
-
 namespace GourmetSp
 {
     public class Food
     {
-        public double Calories;
+        public double Calories { get; set; }
         public string Name { get; set; }
         public FoodGroup Group { get; set; }
         public Unit Unit { get; set; }

@@ -18,7 +18,6 @@ namespace GourmetSp.Tests
         [Fact]
         public void AmountIngredientsTest()
         {
-
             // Creating ingredients
             Ingredient ingredients1 = new Ingredient();
             ingredients1.Food = this._food1;
@@ -112,7 +111,7 @@ namespace GourmetSp.Tests
 
             this.recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            bool result = recipe.HaveFood("food1");
+            bool result = recipe.HasFood(this._food1);
 
             Assert.True(result);
         }
@@ -121,9 +120,11 @@ namespace GourmetSp.Tests
         public void foodNameFalseTest()
         {
 
+            Food food4 = new Food(143, Unit.unit, FoodGroup.Fruits, "food4");
+
             this.recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            bool result = this.recipe.HaveFood("food4");
+            bool result = this.recipe.HasFood(food4);
            
             Assert.False(result);
         }
@@ -147,7 +148,7 @@ namespace GourmetSp.Tests
 
             this.recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            bool result = recipe.HaveFoodGroup(FoodGroup.Vegetables);
+            bool result = recipe.HasFoodGroup(FoodGroup.Vegetables);
 
             Assert.True(result);
         }
@@ -170,7 +171,7 @@ namespace GourmetSp.Tests
 
             this.recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            bool result = recipe.HaveFoodGroup(FoodGroup.Meets);
+            bool result = recipe.HasFoodGroup(FoodGroup.Meets);
 
             Assert.False(result);
         }
