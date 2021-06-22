@@ -43,5 +43,40 @@ namespace GourmetSp
             return this._ingredients.Any(x => x.HasFoodGroup(group));
         }
 
+        // Entrega2
+        public bool isForCeliacs()
+        {
+            return !HasFoodGroup(FoodGroup.Cereals);
+        }
+
+        public bool isForVegetarians()
+        {
+            return !HasFoodGroup(FoodGroup.Meets);
+        }
+        public bool isForVegans()
+        {
+            return (!HasFoodGroup(FoodGroup.Dairies) && !HasFoodGroup(FoodGroup.Meets));
+        }
+        public bool isForCarnivores()
+        {
+            return (HasFoodGroup(FoodGroup.Meets) && (CaloriesRecipe() >= 200));
+        }
+
+        public bool isAccording(Profile profile)
+        {
+            switch (profile)
+            {
+                case Profile.Celiac:
+                    return isForCeliacs();
+                case Profile.Vegetarian:
+                    return isForVegetarians();
+                case Profile.Vegan:
+                    return isForVegans();
+                case Profile.Carnivorous:
+                    return isForCarnivores();
+                default:
+                    return false;
+            }
+        }
     }
 }
