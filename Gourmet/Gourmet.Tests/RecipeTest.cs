@@ -7,13 +7,12 @@ namespace GourmetSp.Tests
 {
     public class RecipeTest
     {
-        //private Dictionary<Food, double> ingredients;
         private List<Ingredient> _ingredientsRecipe = new List<Ingredient>();
-        private Food 
-            _food1 = new Food(23, Unit.unit, FoodGroup.Vegetables, "food1"), 
+        private Recipe recipe;
+        private Food
+            _food1 = new Food(23, Unit.unit, FoodGroup.Vegetables, "food1"),
             _food2 = new Food(45, Unit.kilos, FoodGroup.Legumes, "food2"),
             _food3 = new Food(123, Unit.grams, FoodGroup.Cereals, "food3");
-        private Recipe recipe;
 
         [Fact]
         public void AmountIngredientsTest()
@@ -119,7 +118,6 @@ namespace GourmetSp.Tests
         [Fact]
         public void foodNameFalseTest()
         {
-
             Food food4 = new Food(143, Unit.unit, FoodGroup.Fruits, "food4");
 
             this.recipe = new Recipe("recipe1", _ingredientsRecipe);
@@ -175,5 +173,6 @@ namespace GourmetSp.Tests
 
             Assert.False(result);
         }
+
     }
 }

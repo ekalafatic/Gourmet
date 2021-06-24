@@ -42,6 +42,5 @@ namespace GourmetSp
         {
             return this._ingredients.Any(x => x.HasFoodGroup(group));
         }
-
     }
 }
