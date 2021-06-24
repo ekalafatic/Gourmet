@@ -33,7 +33,7 @@ namespace GourmetSp.Tests
 
             this._recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            bool result = carnivorous.isAccording(this._recipe);
+            bool result = carnivorous.IsAccording(this._recipe);
 
             Assert.True(result);
         }
@@ -60,7 +60,7 @@ namespace GourmetSp.Tests
 
             this._recipe = new Recipe("recipe1", _ingredientsRecipe);
 
-            bool result = carnivorous.isAccording(this._recipe);
+            bool result = carnivorous.IsAccording(this._recipe);
 
             Assert.False(result);
         }

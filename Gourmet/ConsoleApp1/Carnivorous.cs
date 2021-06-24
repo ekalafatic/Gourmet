@@ -7,7 +7,7 @@ namespace GourmetSp
     public class Carnivorous : IProfile
     {
         double caloriesNeeded = 200;
-        public bool isAccording(Recipe recipe)
+        public bool IsAccording(Recipe recipe)
         {
             return recipe.HasFoodGroup(FoodGroup.Meets) && (recipe.CaloriesRecipe() >= caloriesNeeded);
         }

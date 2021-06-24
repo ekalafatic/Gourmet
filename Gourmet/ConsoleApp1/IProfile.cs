@@ -6,6 +6,6 @@ namespace GourmetSp
 {
     public interface IProfile
     {
-        public bool isAccording(Recipe recipe);
+        public bool IsAccording(Recipe recipe);
     }
 }

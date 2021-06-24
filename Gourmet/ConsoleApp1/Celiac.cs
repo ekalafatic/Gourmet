@@ -6,7 +6,7 @@ namespace GourmetSp
 {
     public class Celiac : IProfile
     {
-        public bool isAccording(Recipe recipe)
+        public bool IsAccording(Recipe recipe)
         {
             return !recipe.HasFoodGroup(FoodGroup.Cereals);
         }
