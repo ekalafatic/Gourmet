@@ -58,7 +58,7 @@ namespace GourmetSp.Tests
 
             RecipeBook _someRecipeBook = new RecipeBook(_recipes);
 
-            var result = _someRecipeBook.amountRecipes();
+            var result = _someRecipeBook.AmountRecipes();
 
             Assert.Equal(2,result);
         }
@@ -68,7 +68,7 @@ namespace GourmetSp.Tests
         {
             RecipeBook _someRecipeBook = new RecipeBook();
 
-            var result = _someRecipeBook.amountRecipes();
+            var result = _someRecipeBook.AmountRecipes();
 
             Assert.Equal(0, result);
         }
