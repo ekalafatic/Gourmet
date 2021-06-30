@@ -7,7 +7,7 @@ namespace GourmetSp
     public class RecipeBook
     {
         private readonly List<Recipe> _recipes;
-        private readonly List<IUser> _suscribedUsers;
+        private readonly List<ISuscriber> _suscribers;
 
         public RecipeBook(List<Recipe> recipes)
         {
@@ -17,12 +17,13 @@ namespace GourmetSp
         public RecipeBook() 
         {
             this._recipes = new List<Recipe>();
-            this._suscribedUsers = new List<IUser>();
+            this._suscribers = new List<ISuscriber>();
         }
 
         public void AddRecipe(Recipe recipe)
         {
             _recipes.Add(recipe);
+            // Send a notification
             Notify(recipe);
         }
 
@@ -37,22 +38,23 @@ namespace GourmetSp
         }
 
         // Suscribe user
-        public void Subscribe(IUser suscribedUser)
+        public void Subscribe(ISuscriber suscriber)
         {
-            this._suscribedUsers.Add(suscribedUser);
+            this._suscribers.Add(suscriber);
+            
         }
 
-        public void Unsuscribe(IUser suscribedUser)
+        public void Unsuscribe(ISuscriber suscriber)
         {
-            this._suscribedUsers.Remove(suscribedUser);
+            this._suscribers.Remove(suscriber);
         }
 
         // Notify the observers
         public void Notify(Recipe recipe)
         {
-            foreach (IUser suscribedUser in this._suscribedUsers)
+            foreach (ISuscriber suscriber in this._suscribers)
             {
-               suscribedUser.Update(recipe);
+               suscriber.Update(recipe);
             }
 ;
         }

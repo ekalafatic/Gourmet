@@ -4,7 +4,7 @@ using Xunit;
 
 namespace GourmetSp.Tests
 {
-    public class UserTest
+    public class RankingTest
     {
         private List<Ingredient> _ingredientsRecipe = new List<Ingredient>();
         private Recipe _recipe;
@@ -31,7 +31,7 @@ namespace GourmetSp.Tests
             // Adding ingredients to recipe
             this._ingredientsRecipe.Add(ingredients1);
             this._ingredientsRecipe.Add(ingredients2);
-            
+
             this._recipe = new Recipe("recipe1", _ingredientsRecipe);
 
             // Se crea el sujeto
@@ -39,18 +39,22 @@ namespace GourmetSp.Tests
             recipeBook.AddRecipe(this._recipe);
 
             string email = "ekalafatic@hexacta.com";
-            // Se crean posibles observadores
-            User user1 = new User(email, carnivorous, recipeBook);
 
-            // se añade una nueva receta y debería notificar
+            // Se crean posibles observadores
             Recipe recipe2 = new Recipe("recipe2", _ingredientsRecipe);
 
+            RecipeScore recipeScore = new RecipeScore(recipe2, 10);
+            List<RecipeScore> recipeScores = new List<RecipeScore>();
+            recipeScores.Add(recipeScore);
+
+            Ranking ranking = new Ranking(recipeScores, "Ranking de algo", recipeBook);
+
+            // se añade una nueva receta y debería notificar
             recipeBook.AddRecipe(recipe2);
 
-            var result = user1.MailSended;
+            var result = recipeScore.score;
 
-            Assert.True(result);
-
+            Assert.Equal(20,result);
         }
     }
 }

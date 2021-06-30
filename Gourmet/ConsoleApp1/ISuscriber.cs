@@ -4,7 +4,7 @@ using System.Text;
 
 namespace GourmetSp
 {
-    public interface IUser
+    public interface ISuscriber
     {
         public void Update(Recipe recipe);
     }

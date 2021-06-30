@@ -4,8 +4,14 @@ using System.Text;
 
 namespace GourmetSp
 {
-    class RecipeScore
+    public class RecipeScore
     {
+        public RecipeScore(Recipe recipe, double score)
+        {
+            Recipe = recipe;
+            this.score = score;
+        }
+
         public Recipe Recipe { get; set; }
         public double score { get; set; }
 
