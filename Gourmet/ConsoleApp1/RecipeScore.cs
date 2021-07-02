@@ -11,6 +11,11 @@ namespace GourmetSp
             Recipe = recipe;
             this.score = score;
         }
+        public RecipeScore() 
+        {
+            this.Recipe = new Recipe();
+            this.score = 0;
+        }
 
         public Recipe Recipe { get; set; }
         public double score { get; set; }

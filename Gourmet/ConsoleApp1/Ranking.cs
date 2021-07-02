@@ -23,12 +23,34 @@ namespace GourmetSp
         
         public List<RecipeScore> GetRecipeScores()
         {
-            return this.recipeScores;
+            List<RecipeScore> recipeScoresCopy = new List<RecipeScore>();
+            recipeScoresCopy = this.recipeScores;
+
+            return recipeScoresCopy;
+        }
+
+        public bool RecipeExists(Recipe recipe)
+        {
+            var recipeScoreTemp = this.recipeScores.Find(x => x.Recipe.Equals(recipe));
+            
+            if (recipeScoreTemp == null) return false;
+
+            return true;
         }
 
         public void AddPoints(Recipe recipe)
         {
-            if(this.recipeScores != null) this.recipeScores.Find(x => x.Recipe == recipe).score += 10;
+            var recipeScoreTemp = this.recipeScores.Find(x => x.Recipe.Equals(recipe));
+
+            if (recipeScoreTemp == null)
+            {
+                RecipeScore recipeScore = new RecipeScore(recipe, 10);
+                this.recipeScores.Add(recipeScore);
+            }
+            else
+            {
+                recipeScoreTemp.score += 10;
+            }
         }
     }
 }

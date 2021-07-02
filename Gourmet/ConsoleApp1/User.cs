@@ -8,7 +8,6 @@ namespace GourmetSp
     {
         public string Email { get; set; }
         
-        private RecipeBook _recipeBook;
         public bool MailSended { get; set; }
         
         public User(string email)

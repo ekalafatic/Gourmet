@@ -32,11 +32,6 @@ namespace GourmetSp
             return _recipes.Count;
         }
 
-        public List<Recipe> GetRecipes()
-        {
-            return this._recipes;
-        }
-
         // Suscribe user
         public void Subscribe(ISuscriber suscriber)
         {
@@ -56,7 +51,6 @@ namespace GourmetSp
             {
                suscriber.Update(recipe);
             }
-;
         }
 
     }
