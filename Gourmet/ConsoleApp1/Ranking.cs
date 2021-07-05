@@ -1,55 +1,49 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 namespace GourmetSp
 {
     public class Ranking
     {
-        private readonly List<RecipeScore> recipeScores;
+        private readonly List<RecipeScore> _recipeScores;
         public string Name { get; set; }
 
         public Ranking(List<RecipeScore> recipeScores, string name)
         {
-            this.recipeScores = recipeScores;
+            this._recipeScores = recipeScores;
             this.Name = name;
         }
 
         public Ranking()
         {
-            this.recipeScores = new List<RecipeScore>();
+            this._recipeScores = new List<RecipeScore>();
             this.Name = "";
         }
         
         public List<RecipeScore> GetRecipeScores()
         {
-            List<RecipeScore> recipeScoresCopy = new List<RecipeScore>();
-            recipeScoresCopy = this.recipeScores;
-
-            return recipeScoresCopy;
+            return new List<RecipeScore>(this._recipeScores);
         }
 
         public bool RecipeExists(Recipe recipe)
         {
-            var recipeScoreTemp = this.recipeScores.Find(x => x.Recipe.Equals(recipe));
-            
-            if (recipeScoreTemp == null) return false;
-
-            return true;
+            return this._recipeScores.Any(x => x.Recipe.Equals(recipe));
         }
 
         public void AddPoints(Recipe recipe)
         {
-            var recipeScoreTemp = this.recipeScores.Find(x => x.Recipe.Equals(recipe));
+            var recipeScoreTemp = this._recipeScores.Find(x => x.Recipe.Equals(recipe));
 
             if (recipeScoreTemp == null)
             {
                 RecipeScore recipeScore = new RecipeScore(recipe, 10);
-                this.recipeScores.Add(recipeScore);
+                this._recipeScores.Add(recipeScore);
             }
             else
             {
-                recipeScoreTemp.score += 10;
+                recipeScoreTemp.Score += 10;
             }
         }
     }

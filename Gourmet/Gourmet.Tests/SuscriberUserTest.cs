@@ -51,7 +51,7 @@ namespace GourmetSp.Tests
 
             recipeBook.AddRecipe(recipe2);
 
-            var result = user1.MailSended;
+            var result = user1.MailSent;
 
             Assert.True(result);
         }
@@ -94,7 +94,7 @@ namespace GourmetSp.Tests
 
             recipeBook.AddRecipe(recipe2);
 
-            var result = user1.MailSended;
+            var result = user1.MailSent;
 
             Assert.False(result);
         }
@@ -133,13 +133,13 @@ namespace GourmetSp.Tests
             recipeBook.Subscribe(suscriberUser);
 
             // Notification disabled
-            suscriberUser.notificationsActivated = false;
+            suscriberUser.NotificationsActivated = false;
 
             // Adding a recipe to send the notification
             Recipe recipe2 = new Recipe("recipe2", _ingredientsRecipe);
             recipeBook.AddRecipe(recipe2);
 
-            var result = user1.MailSended;
+            var result = user1.MailSent;
 
             Assert.False(result);
         }

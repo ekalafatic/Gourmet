@@ -6,6 +6,6 @@ namespace GourmetSp
 {
     public interface ISuscriber
     {
-        public void Update(Recipe recipe);
+        void Update(Recipe recipe);
     }
 }

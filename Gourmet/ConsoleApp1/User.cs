@@ -8,12 +8,12 @@ namespace GourmetSp
     {
         public string Email { get; set; }
         
-        public bool MailSended { get; set; }
+        public bool MailSent { get; set; }
         
         public User(string email)
         {
             Email = email;
-            this.MailSended = false;
+            this.MailSent = false;
         }
 
     }

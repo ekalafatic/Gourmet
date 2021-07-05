@@ -47,7 +47,7 @@ namespace GourmetSp.Tests
             // Adding a recipe to send the notification
             recipeBook.AddRecipe(_recipe);
 
-            var result = recipeScore.score;
+            var result = recipeScore.Score;
 
             Assert.Equal(20,result);
         }
@@ -136,7 +136,7 @@ namespace GourmetSp.Tests
             // Adding a recipe to send the notification
             recipeBook.AddRecipe(_recipe);
 
-            var result = recipeScore.score;
+            var result = recipeScore.Score;
 
             Assert.Equal(10, result);
         }

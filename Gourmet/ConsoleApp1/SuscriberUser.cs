@@ -6,27 +6,27 @@ namespace GourmetSp
 {
     public class SuscriberUser : ISuscriber
     {
-        public User user { get; set; }
+        public User User { get; set; }
         public IProfile Profile { get; set; }
-        public bool notificationsActivated { get; set; }
+        public bool NotificationsActivated { get; set; }
 
         public SuscriberUser(User user, IProfile profile)
         {
-            this.user = user;
+            this.User = user;
             Profile = profile;
-            this.notificationsActivated = true;
+            this.NotificationsActivated = true;
         }
 
         // Se recibe actualización
         public void Update(Recipe recipe)
         {
-            if (this.Profile.IsAccording(recipe) && this.notificationsActivated)
+            if (this.Profile.IsAccording(recipe) && this.NotificationsActivated)
             {
-                this.user.MailSended = true;
+                this.User.MailSent = true;
             }
             else
             {
-                this.user.MailSended = false;
+                this.User.MailSent = false;
             }
         }
 

@@ -17,7 +17,10 @@ namespace GourmetSp
 
         public void Update(Recipe recipe)
         {
-            if (this.NotificationsActivated) this.Ranking.AddPoints(recipe);
+            if (this.NotificationsActivated)
+            {
+                this.Ranking.AddPoints(recipe);
+            }
         }
     }
 }
