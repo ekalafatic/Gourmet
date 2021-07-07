@@ -6,10 +6,10 @@ namespace GourmetSp
 {
     public class Carnivorous : IProfile
     {
-        double caloriesNeeded = 200;
+        private readonly double _caloriesNeeded = 200;
         public bool IsAccording(Recipe recipe)
         {
-            return recipe.HasFoodGroup(FoodGroup.Meets) && (recipe.CaloriesRecipe() >= caloriesNeeded);
+            return recipe.HasFoodGroup(FoodGroup.Meets) && (recipe.CaloriesRecipe() >= _caloriesNeeded);
         }
     }
 }

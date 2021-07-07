@@ -9,7 +9,7 @@ namespace GourmetSp
     {
         public string RecipeTitle { get; set; }
 
-        private List<Ingredient> _ingredients;
+        private readonly List<Ingredient> _ingredients;
 
         public Recipe(string recipeTitle, List<Ingredient> ingredients)
         {

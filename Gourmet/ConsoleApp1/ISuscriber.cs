@@ -4,8 +4,8 @@ using System.Text;
 
 namespace GourmetSp
 {
-    public interface IProfile
+    public interface ISuscriber
     {
-        bool IsAccording(Recipe recipe);
+        void Update(Recipe recipe);
     }
 }
