@@ -9,52 +9,52 @@ namespace GourmetSp
     {
         public int RecipeId { get; set; }
         public string RecipeTitle { get; set; }
-        public List<Ingredient> _ingredients;
-        public List<RecipeBook> _recipeBooks;
+        public readonly List<Ingredient> Ingredients;
+        public readonly List<RecipeBook> RecipeBooks;
 
         public Recipe(string recipeTitle, List<Ingredient> ingredients)
         {
             this.RecipeTitle = recipeTitle;
-            this._ingredients = ingredients;
-            this._recipeBooks = new List<RecipeBook>();
+            this.Ingredients = ingredients;
+            this.RecipeBooks = new List<RecipeBook>();
         }
 
         public List<RecipeBook> getRecipeBooks()
         {
-            List<RecipeBook> recipeBooksCopy = new List<RecipeBook>(this._recipeBooks);
+            List<RecipeBook> recipeBooksCopy = new List<RecipeBook>(this.RecipeBooks);
             return recipeBooksCopy;
         }
         
         public List<Ingredient> GetIngredients()
         {
-            List<Ingredient> ingredientsCopy = new List<Ingredient>(this._ingredients);
+            List<Ingredient> ingredientsCopy = new List<Ingredient>(this.Ingredients);
             return ingredientsCopy;
         }
 
         public Recipe() 
         {
-            this._ingredients = new List<Ingredient>();
+            this.Ingredients = new List<Ingredient>();
             this.RecipeTitle = "";
         }
 
         public double CaloriesRecipe()
         {
-           return this._ingredients.Sum(x => x.Calories());
+           return this.Ingredients.Sum(x => x.Calories());
         }
 
         public double AmountIngredients()
         {
-            return this._ingredients.Count;
+            return this.Ingredients.Count;
         }
 
         public bool HasFood(Food food)
         {
-            return this._ingredients.Any(x => x.HasFood(food));
+            return this.Ingredients.Any(x => x.HasFood(food));
         }
 
         public bool HasFoodGroup(FoodGroup group)
         {
-            return this._ingredients.Any(x => x.HasFoodGroup(group));
+            return this.Ingredients.Any(x => x.HasFoodGroup(group));
         }
     }
 }

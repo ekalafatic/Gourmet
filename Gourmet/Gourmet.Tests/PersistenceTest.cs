@@ -1,10 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using Microsoft.Data.Sqlite;
+﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
+using System;
+using System.Linq;
 using Xunit;
 
 
@@ -60,14 +57,14 @@ namespace GourmetSp.Tests
         public async void Can_Persist_RecipeBook_Create()
         {
             // Arrange
-            var recipeBookName = "CreateTest";
+            var randomName = Guid.NewGuid().ToString();
 
             // Act
-            DbContext.RecipeBooks.Add(new RecipeBook { RecipeBookTitle = recipeBookName });
+            DbContext.RecipeBooks.Add(new RecipeBook { RecipeBookTitle = randomName });
             DbContext.SaveChanges();
 
             // Assert
-            Assert.Equal(1, await DbContext.RecipeBooks.Where(x => recipeBookName.Equals(x.RecipeBookTitle)).CountAsync());
+            Assert.Equal(1, await DbContext.RecipeBooks.Where(x => randomName.Equals(x.RecipeBookTitle)).CountAsync());
         }
 
         [Fact]
@@ -75,18 +72,31 @@ namespace GourmetSp.Tests
         {
             // Arrange
             var randomName = Guid.NewGuid().ToString();
-            var recipeBookName = "UpdateTest";
+            var recipeBookRandomName = Guid.NewGuid().ToString();
 
             // Act
             DbContext.RecipeBooks.Add(new RecipeBook { RecipeBookTitle = randomName });
             DbContext.SaveChanges();
 
             RecipeBook r = DbContext.RecipeBooks.First(i => i.RecipeBookTitle == randomName);
-            r.RecipeBookTitle = recipeBookName;
+            r.RecipeBookTitle = recipeBookRandomName;
             DbContext.SaveChanges();
 
             // Assert
-            Assert.Equal(1, await DbContext.RecipeBooks.Where(x => recipeBookName.Equals(x.RecipeBookTitle)).CountAsync());
+            Assert.Equal(1, await DbContext.RecipeBooks.Where(x => recipeBookRandomName.Equals(x.RecipeBookTitle)).CountAsync());
+        }
+
+        [Fact]
+        public async void Can_Persist_RecipeBook_Read()
+        {
+            // Arrange
+            var randomName = Guid.NewGuid().ToString();
+
+            // Act
+            RecipeBook r = DbContext.RecipeBooks.First();
+
+            // Assert
+            Assert.Equal(1, await DbContext.RecipeBooks.Where(x => x.Equals(r)).CountAsync());
         }
 
         [Fact]

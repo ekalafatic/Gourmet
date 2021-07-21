@@ -23,13 +23,13 @@ namespace GourmetSp
         {
 
             modelBuilder.Entity<RecipeBook>()
-            .HasMany(r => r._recipes)
-            .WithMany(r => r._recipeBooks)
+            .HasMany(r => r.Recipes)
+            .WithMany(r => r.RecipeBooks)
             .UsingEntity(t => t.ToTable("RecipeBookRecipe"));
 
             modelBuilder.Entity<Recipe>()
-              .HasMany(r => r._ingredients)
-              .WithMany(i => i._recipes)
+              .HasMany(r => r.Ingredients)
+              .WithMany(i => i.Recipes)
               .UsingEntity(t => t.ToTable("RecipeIngredient"));
 
             modelBuilder.Entity<Ingredient>()

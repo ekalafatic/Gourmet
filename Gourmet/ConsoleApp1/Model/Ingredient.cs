@@ -9,24 +9,24 @@ namespace GourmetSp
         public int IngredientId { get; set; }
         public Food Food { get; set; }
         public double Amount { get; set; }
-        public List<Recipe> _recipes;
+        public readonly List<Recipe> Recipes;
 
         public Ingredient() 
         {
             this.Food = new Food();
             this.Amount = 0;
-            this._recipes = new List<Recipe>();
+            this.Recipes = new List<Recipe>();
         }
         public Ingredient(Food food, double amount)
         {
             this.Food = food;
             this.Amount = amount;
-            this._recipes = new List<Recipe>();
+            this.Recipes = new List<Recipe>();
         }
 
         public List<Recipe> getRecipes()
         {
-            List<Recipe> recipesCopy = new List<Recipe>(this._recipes);
+            List<Recipe> recipesCopy = new List<Recipe>(this.Recipes);
             return recipesCopy;
         }
         public bool HasFood(Food food)
