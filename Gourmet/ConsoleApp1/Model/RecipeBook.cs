@@ -6,7 +6,9 @@ namespace GourmetSp
 {
     public class RecipeBook
     {
-        private readonly List<Recipe> _recipes;
+        public int RecipeBookId { get; set; }
+        public string RecipeBookTitle { get; set; }
+        public readonly List<Recipe> _recipes;
         private readonly List<ISuscriber> _suscribers;
 
         public RecipeBook(List<Recipe> recipes)
@@ -25,6 +27,12 @@ namespace GourmetSp
             _recipes.Add(recipe);
             // Send a notification
             Notify(recipe);
+        }
+
+        public List<Recipe> getRecipes()
+        {
+            List<Recipe> r = new List<Recipe>(this._recipes);
+            return r;
         }
 
         public int AmountRecipes()

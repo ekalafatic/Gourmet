@@ -6,9 +6,29 @@ namespace GourmetSp
 {
     public class Ingredient
     {
+        public int IngredientId { get; set; }
         public Food Food { get; set; }
         public double Amount { get; set; }
+        public List<Recipe> _recipes;
 
+        public Ingredient() 
+        {
+            this.Food = new Food();
+            this.Amount = 0;
+            this._recipes = new List<Recipe>();
+        }
+        public Ingredient(Food food, double amount)
+        {
+            this.Food = food;
+            this.Amount = amount;
+            this._recipes = new List<Recipe>();
+        }
+
+        public List<Recipe> getRecipes()
+        {
+            List<Recipe> recipesCopy = new List<Recipe>(this._recipes);
+            return recipesCopy;
+        }
         public bool HasFood(Food food)
         {
             if (this.Food.Name == food.Name) return true;

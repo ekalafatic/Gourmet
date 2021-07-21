@@ -7,14 +7,28 @@ namespace GourmetSp
 {
     public class Recipe
     {
+        public int RecipeId { get; set; }
         public string RecipeTitle { get; set; }
-
-        private readonly List<Ingredient> _ingredients;
+        public List<Ingredient> _ingredients;
+        public List<RecipeBook> _recipeBooks;
 
         public Recipe(string recipeTitle, List<Ingredient> ingredients)
         {
             this.RecipeTitle = recipeTitle;
             this._ingredients = ingredients;
+            this._recipeBooks = new List<RecipeBook>();
+        }
+
+        public List<RecipeBook> getRecipeBooks()
+        {
+            List<RecipeBook> recipeBooksCopy = new List<RecipeBook>(this._recipeBooks);
+            return recipeBooksCopy;
+        }
+        
+        public List<Ingredient> GetIngredients()
+        {
+            List<Ingredient> ingredientsCopy = new List<Ingredient>(this._ingredients);
+            return ingredientsCopy;
         }
 
         public Recipe() 
