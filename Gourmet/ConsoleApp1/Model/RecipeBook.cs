@@ -6,30 +6,39 @@ namespace GourmetSp
 {
     public class RecipeBook
     {
-        private readonly List<Recipe> _recipes;
+        public int RecipeBookId { get; set; }
+        public string RecipeBookTitle { get; set; }
+        public readonly List<Recipe> Recipes;
         private readonly List<ISuscriber> _suscribers;
 
-        public RecipeBook(List<Recipe> recipes)
+        public RecipeBook(string recipeBookTite, List<Recipe> recipes)
         {
-            this._recipes = recipes;
+            this.RecipeBookTitle = recipeBookTite;
+            this.Recipes = recipes;
         }
 
         public RecipeBook() 
         {
-            this._recipes = new List<Recipe>();
+            this.Recipes = new List<Recipe>();
             this._suscribers = new List<ISuscriber>();
         }
 
         public void AddRecipe(Recipe recipe)
         {
-            _recipes.Add(recipe);
+            Recipes.Add(recipe);
             // Send a notification
             Notify(recipe);
         }
 
+        public List<Recipe> getRecipes()
+        {
+            List<Recipe> r = new List<Recipe>(this.Recipes);
+            return r;
+        }
+
         public int AmountRecipes()
         {
-            return _recipes.Count;
+            return Recipes.Count;
         }
 
         // Suscribe user

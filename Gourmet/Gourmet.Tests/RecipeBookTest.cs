@@ -56,7 +56,7 @@ namespace GourmetSp.Tests
             _recipes.Add(recipe1);
             _recipes.Add(recipe2);
 
-            RecipeBook _someRecipeBook = new RecipeBook(_recipes);
+            RecipeBook _someRecipeBook = new RecipeBook("RecipeBook", _recipes);
 
             var result = _someRecipeBook.AmountRecipes();
 
