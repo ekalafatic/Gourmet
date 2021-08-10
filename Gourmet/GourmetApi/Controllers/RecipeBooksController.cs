@@ -27,25 +27,24 @@ namespace GourmetApi.Controllers
             return await _context.RecipeBooks.ToListAsync();
         }
 
-        //// GET: api/RecipeBooks/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<RecipeBook>> GetRecipeBook(int id)
-        //{
-        //    var recipeBook = await _context.RecipeBooks.FindAsync(id);
-
-        //    if (recipeBook == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return recipeBook;
-        //}
-
-        //// GET: api/RecipeBooks/5
+        // GET: api/RecipeBooks/5
         [HttpGet("{id}")]
+        public async Task<ActionResult<RecipeBook>> GetRecipeBook(int id)
+        {
+            var recipeBook = await _context.RecipeBooks.FindAsync(id);
+
+            if (recipeBook == null)
+            {
+                return NotFound();
+            }
+
+            return recipeBook;
+        }
+
+        //// GET: api/RecipeBooks/5
+        [HttpGet("{id}/recipes")]
         public async Task<ActionResult<List<Recipe>>> GetFoodRecipeBook(int id)
         {
-            //var recipes =  _context.RecipeBooks.Include(x => x.Recipes).ToList();
             var recipeBook = await _context.RecipeBooks
                                    .Include(x => x.Recipes)
                                    .FirstOrDefaultAsync(x => x.RecipeBookId == id);
