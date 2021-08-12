@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
+﻿using System.Collections.Generic;
 using System.Threading.Tasks;
-using Microsoft.AspNetCore.Http;
 using Microsoft.AspNetCore.Mvc;
-using Microsoft.EntityFrameworkCore;
 using GourmetSp;
 using GourmetApi.DTOs;
 using GourmetApi.Repositories;
@@ -16,19 +12,6 @@ namespace GourmetApi.Controllers
     [ApiController]
     public class RecipeBooksController : ControllerBase
     {
-        //private readonly GourmetContext _context;
-
-        //public RecipeBooksController(GourmetContext context)
-        //{
-        //    _context = context;
-        //}
-
-        // GET: api/RecipeBooks
-        //[HttpGet]
-        //public async Task<ActionResult<IEnumerable<RecipeBook>>> GetRecipeBooks()
-        //{
-        //    return await _context.RecipeBooks.ToListAsync();
-        //}
 
         private readonly RecipeBookRepository _repository;
 
@@ -50,23 +33,6 @@ namespace GourmetApi.Controllers
             return recipeBooks.ToDTO();
         }
 
-      
-        
-        //// GET: api/RecipeBooks/5
-        //[HttpGet("{id}")]
-        //public async Task<ActionResult<RecipeBook>> GetRecipeBook(int id)
-        //{
-        //    var recipeBook = await _context.RecipeBooks.FindAsync(id);
-
-        //    if (recipeBook == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return recipeBook;
-        //}
-
-        // GET: api/RecipeBooks/5
         [HttpGet("{id}")]
         public async Task<ActionResult<RecipeBookDTO>> GetRecipeBook(int id)
         {
@@ -80,24 +46,7 @@ namespace GourmetApi.Controllers
             return recipeBook.ToDTO();
         }
 
-
-        //// GET: api/RecipeBooks/5
-        //[HttpGet("{id}/recipes")]
-        //public async Task<ActionResult<List<Recipe>>> GetFoodRecipeBook(int id)
-        //{
-        //    var recipeBook = await _context.RecipeBooks
-        //                           .Include(x => x.Recipes)
-        //                           .FirstOrDefaultAsync(x => x.RecipeBookId == id);
-
-        //    if (recipeBook == null)
-        //    {
-        //        return NotFound();
-        //    }
-
-        //    return recipeBook.Recipes;
-        //}
-
-        [HttpGet("{id}/recipes")]
+        [HttpGet("{id}/Recipes")]
         public async Task<ActionResult<List<RecipeDTO>>> GetRecipes(int id)
         {
             var recipes = await _repository.GetRecipes(id);
@@ -110,21 +59,9 @@ namespace GourmetApi.Controllers
             return recipes.ToDTO();
         }
 
-
-        [HttpGet("{id}/recipes/ingredients")]
-        public async Task<ActionResult<List<IngredientDTO>>> GetIngredients(int id)
-        {
-            var ingredients = await _repository.GetIngredients(id);
-
-            if (ingredients == null)
-            {
-                return NotFound();
-            }
-
-            return ingredients.ToDTO();
-        }
-
         /*
+         // JUST IN CASE
+
         // PUT: api/RecipeBooks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

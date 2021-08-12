@@ -33,16 +33,5 @@ namespace GourmetApi.Repositories
 
             return recipeBook.Recipes;
         }
-
-        public async Task<List<Ingredient>> GetIngredients(int id)
-        {
-            var recipeBook = await _context.RecipeBooks
-                                   .Include(x => x.Recipes)
-                                   .ThenInclude(y => y.Ingredients)
-                                   .ThenInclude(x => x.Food)
-                                   .FirstOrDefaultAsync(x => x.RecipeBookId == id);
-
-            return recipeBook.Recipes[0].Ingredients;
-        }
     }
 }
