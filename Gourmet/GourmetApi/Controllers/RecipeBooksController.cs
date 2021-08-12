@@ -80,23 +80,51 @@ namespace GourmetApi.Controllers
             return recipeBook.ToDTO();
         }
 
-        /*
-        //// GET: api/RecipeBooks/5
-        [HttpGet("{id}/recipes")]
-        public async Task<ActionResult<List<Recipe>>> GetFoodRecipeBook(int id)
-        {
-            var recipeBook = await _context.RecipeBooks
-                                   .Include(x => x.Recipes)
-                                   .FirstOrDefaultAsync(x => x.RecipeBookId == id);
 
-            if (recipeBook == null)
+        //// GET: api/RecipeBooks/5
+        //[HttpGet("{id}/recipes")]
+        //public async Task<ActionResult<List<Recipe>>> GetFoodRecipeBook(int id)
+        //{
+        //    var recipeBook = await _context.RecipeBooks
+        //                           .Include(x => x.Recipes)
+        //                           .FirstOrDefaultAsync(x => x.RecipeBookId == id);
+
+        //    if (recipeBook == null)
+        //    {
+        //        return NotFound();
+        //    }
+
+        //    return recipeBook.Recipes;
+        //}
+
+        [HttpGet("{id}/recipes")]
+        public async Task<ActionResult<List<RecipeDTO>>> GetRecipes(int id)
+        {
+            var recipes = await _repository.GetRecipes(id);
+
+            if (recipes == null)
             {
                 return NotFound();
             }
-            
-            return recipeBook.Recipes;
+
+            return recipes.ToDTO();
         }
 
+
+        [HttpGet("{id}/recipes/ingredients")]
+        public async Task<ActionResult<List<IngredientDTO>>> GetIngredients(int id)
+        {
+            var ingredients = await _repository.GetIngredients(id);
+
+            if (ingredients == null)
+            {
+                return NotFound();
+            }
+
+            return ingredients.ToDTO();
+        }
+
+        /*
         // PUT: api/RecipeBooks/5
         // To protect from overposting attacks, see https://go.microsoft.com/fwlink/?linkid=2123754
         [HttpPut("{id}")]

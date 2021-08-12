@@ -5,7 +5,7 @@ using System.Linq;
 
 namespace GourmetApi.Mappers
 {
-    public static class RecipeBookMappers
+    public static class RecipeBookMapper
     {
         public static RecipeBookDTO ToDTO(this RecipeBook recipeBook)
         {

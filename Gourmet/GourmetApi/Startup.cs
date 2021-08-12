@@ -14,6 +14,7 @@ using System.Threading.Tasks;
 using Microsoft.EntityFrameworkCore;
 using GourmetSp;
 using Microsoft.Data.Sqlite;
+using System.Text.Json.Serialization;
 
 namespace GourmetApi
 {
@@ -29,8 +30,14 @@ namespace GourmetApi
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            // Enum json visualization
+            services.AddControllers().AddJsonOptions(opts =>
+             {
+                 var enumConverter = new JsonStringEnumConverter();
+                 opts.JsonSerializerOptions.Converters.Add(enumConverter);
+             });
 
-            services.AddControllers();
+            // DB
             var Connection = new SqliteConnection(@"Data Source = c:\gourmet.db");
             Connection.Open();
             services.AddDbContext<GourmetContext>(x=>x.UseSqlite(Connection));

@@ -120,7 +120,7 @@ namespace GourmetSp.Tests
         }
 
         [Fact]
-        public async void CreatingAGoodRecipeBook()
+        public async void CreateAGoodRecipeBook()
         {
             List<Ingredient> _ingredientsRecipe = new List<Ingredient>();
             Recipe recipe;
