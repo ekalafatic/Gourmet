@@ -13,9 +13,9 @@ namespace GourmetSp
 
         public Ingredient() 
         {
-            this.Food = new Food();
-            this.Amount = 0;
-            this.Recipes = new List<Recipe>();
+            //this.Food = new Food();
+            //this.Amount = 0;
+            //this.Recipes = new List<Recipe>();
         }
         public Ingredient(Food food, double amount)
         {

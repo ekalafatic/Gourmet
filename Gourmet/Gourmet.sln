@@ -7,6 +7,8 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GourmetSp", "ConsoleApp1\Go
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "GourmetSp.Tests", "Gourmet.Tests\GourmetSp.Tests.csproj", "{5BEAA140-63BF-4793-84FE-BD51B496210C}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GourmetApi", "GourmetApi\GourmetApi.csproj", "{27F0FC2F-B204-4F09-BCF0-C54D46464483}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -21,6 +23,10 @@ Global
 		{5BEAA140-63BF-4793-84FE-BD51B496210C}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5BEAA140-63BF-4793-84FE-BD51B496210C}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5BEAA140-63BF-4793-84FE-BD51B496210C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{27F0FC2F-B204-4F09-BCF0-C54D46464483}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{27F0FC2F-B204-4F09-BCF0-C54D46464483}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{27F0FC2F-B204-4F09-BCF0-C54D46464483}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{27F0FC2F-B204-4F09-BCF0-C54D46464483}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

@@ -1,6 +1,7 @@
 ﻿using Microsoft.Data.Sqlite;
 using Microsoft.EntityFrameworkCore;
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using Xunit;
 
@@ -44,7 +45,7 @@ namespace GourmetSp.Tests
         {
             // Arrange
             var randomName = Guid.NewGuid().ToString();
-
+            
             // Act
             DbContext.Recipes.Add(new Recipe { RecipeTitle = randomName });
             DbContext.SaveChanges();
@@ -116,6 +117,51 @@ namespace GourmetSp.Tests
             // Assert
             //Assert.Null(DbContext.RecipeBooks.Where(r => r.RecipeBookId==1));
             Assert.Equal(0, await DbContext.RecipeBooks.Where(r => r.RecipeBookTitle == recipeBookName).CountAsync());
+        }
+
+        [Fact]
+        public async void CreateAGoodRecipeBook()
+        {
+            List<Ingredient> _ingredientsRecipe = new List<Ingredient>();
+            Recipe recipe;
+            Food
+            _food1 = new Food(23, Unit.unit, FoodGroup.Vegetables, "food1"),
+            _food2 = new Food(45, Unit.kilos, FoodGroup.Legumes, "food2"),
+            _food3 = new Food(123, Unit.grams, FoodGroup.Cereals, "food3");
+
+            // Creating ingredients
+            Ingredient ingredients1 = new Ingredient();
+            ingredients1.Food = _food1;
+            ingredients1.Amount = 1;
+
+            Ingredient ingredients2 = new Ingredient();
+            ingredients2.Food = _food2;
+            ingredients2.Amount = 1;
+
+            Ingredient ingredients3 = new Ingredient();
+            ingredients3.Food = _food3;
+            ingredients3.Amount = 2;
+
+            // Adding ingredients to recipe
+            _ingredientsRecipe.Add(ingredients1);
+            _ingredientsRecipe.Add(ingredients2);
+            _ingredientsRecipe.Add(ingredients3);
+
+            recipe = new Recipe("recipe1", _ingredientsRecipe);
+
+            // Arrange
+            var randomName = Guid.NewGuid().ToString();
+            List<Recipe> recipes = new List<Recipe>();
+            recipes.Add(recipe);
+
+            RecipeBook recipeBook = new RecipeBook(randomName, recipes);
+            // Act
+            DbContext.RecipeBooks.Add(recipeBook);
+            DbContext.SaveChanges();
+
+            // Assert
+            Assert.Equal(1, await DbContext.RecipeBooks.Where(x => randomName.Equals(x.RecipeBookTitle)).CountAsync());
+
         }
 
     }
