@@ -42,6 +42,9 @@ namespace GourmetApi
             Connection.Open();
             services.AddDbContext<GourmetContext>(x=>x.UseSqlite(Connection));
 
+            // Habilita CORS para que se lea info externamente
+            services.AddCors();
+
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "GourmetApi", Version = "v1" });
@@ -51,6 +54,12 @@ namespace GourmetApi
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
         {
+            // Habilito al frontend con CORS
+            app.UseCors(options => options.WithOrigins("*")
+            .AllowAnyMethod()
+            .AllowAnyHeader()
+            );
+
             if (env.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();

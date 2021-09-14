@@ -1,0 +1,12 @@
+.recipeTitles{
+    font-family: 'Lato', sans-serif;
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-top: 1rem;
+}
+
+.btn-primary{
+    height: 37px;
+    width: 70px;
+    margin-left: 2ch;
+}
