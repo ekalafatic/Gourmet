@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <div class="row">
+  </div>
+  <table class="table">
+    <!-- Cabeceras -->
+    <thead>
+        <th class="display-6">Id</th>
+        <th class="display-6">Recipe books</th>
+        <th></th>
+    </thead>
+    <!-- Contenido -->
+    <tbody>
+        <!-- tr le da un espaciado prolijo, ngFor recorre los elementos de ts -->
+        <tr *ngFor="let recipeBook of recipeBooks">
+            <td>{{recipeBook.recipeBookId}}</td>
+            <!-- <td></td> -->
+            <td >
+              <button class="btn btn-outline-secondary ml-auto" [routerLink] = "['/recipes', recipeBook.recipeBookId]">{{recipeBook.recipeBookTitle}}</button>
+            </td>
+        </tr>
+    </tbody>
+  </table>
+</div>

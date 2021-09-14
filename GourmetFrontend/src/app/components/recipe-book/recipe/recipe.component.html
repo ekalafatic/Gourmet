@@ -1,0 +1,35 @@
+<div class="basic-container">
+    <mat-accordion>
+    <mat-expansion-panel *ngFor="let recipe of recipes">
+      <mat-expansion-panel-header>
+        <h3 class = "recipeTitles">
+            {{recipe.recipeId}} - {{recipe.recipeTitle}}
+        </h3>
+      </mat-expansion-panel-header>
+      <ul>
+        <li class="list-item" *ngFor = "let ingredient of recipe.ingredients">
+            Ingredient nº: {{ingredient.ingredientId}}
+            <ul>
+                <li>
+                    {{ingredient.food.name}}
+                </li>
+                <li>
+                    Calories: {{ingredient.food.calories}}
+                </li>
+                <li>
+                    Food group: {{ingredient.food.group}}
+                </li>
+                <li>
+                    Unit: {{ingredient.food.unit}}
+                </li>
+                <li>
+                    Amount: {{ingredient.amount}}
+                </li>
+            </ul>
+            <br>
+        </li>
+    </ul>
+    </mat-expansion-panel>
+  
+  </mat-accordion>
+</div>
